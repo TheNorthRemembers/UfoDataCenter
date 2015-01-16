@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UfoDataCenter.data
+namespace UfoDataCenter
 {
-    public class Class1
+    public class data
     {
     }
 }
