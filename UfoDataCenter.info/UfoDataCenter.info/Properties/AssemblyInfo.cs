@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UfoDataCenter.data")]
+[assembly: AssemblyTitle("UfoDataCenter.info")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Toshiba")]
-[assembly: AssemblyProduct("UfoDataCenter.data")]
+[assembly: AssemblyProduct("UfoDataCenter.info")]
 [assembly: AssemblyCopyright("Copyright © Toshiba 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d67d4f8e-7e0e-417c-9ea9-14ec1922fcb9")]
+[assembly: Guid("f33be483-d1be-45f7-b55e-495ed60fdeab")]
 
 // Version information for an assembly consists of the following four values:
 //
