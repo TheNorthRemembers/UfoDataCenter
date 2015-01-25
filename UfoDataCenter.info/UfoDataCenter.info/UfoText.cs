@@ -18,7 +18,25 @@ namespace UfoDataCenter.info
 {
     public partial class UfoText : aUfo
     {
-        public override UfoCollection ufo_reports
+
+        //Enumnerator for future; hopefully we have multiple sources later and can use Enumerator to access 
+        //No metter what will keep SQL table with collection info
+        public override IEnumerable<UfoCollection> reports
+        {
+            get {
+                List<UfoCollection> r = new List<UfoCollection>();
+                r.Add(this.ufo_reports);
+                return r;            
+            }
+        }
+        //will add constructer for this, for testing
+        public override UfoCollection activeCollection
+        {
+            get { return this.ufo_reports; }
+            
+        }
+
+        private UfoCollection ufo_reports
         {
             get
             {
@@ -32,21 +50,19 @@ namespace UfoDataCenter.info
         }
 
 
-        public override UfoTextDoc GetRandom(UfoCollection settings)
+        public override UfoTextDoc GetRandom()
         {
             var mongoclient = new MongoClient(UfoDB.Connection.settings);
 
             var server = mongoclient.GetServer();
 
-            var db = server.GetDatabase(settings.database);
+            var db = server.GetDatabase(this.activeCollection.database);
 
-            var collect = db.GetCollection(settings.collection);
+            var collect = db.GetCollection(this.activeCollection.collection);
 
-            Random rnd = new Random();
+            Random rnd = new Random();          
 
-            int count = this.GetCount(settings);
-
-            int skip = rnd.Next(0, (count - 1));
+            int skip = rnd.Next(0, (this.GetCount() - 1));
 
             var document = BsonSerializer.Deserialize<UfoTextDoc>(collect.AsQueryable().Skip(skip).First());
 
@@ -54,15 +70,15 @@ namespace UfoDataCenter.info
         }
 
 
-        public override int GetCount(UfoCollection settings)
+        public override int GetCount()
         {
             var mongoclient = new MongoClient(UfoDB.Connection.settings);
 
             var server = mongoclient.GetServer();
 
-            var db = server.GetDatabase(settings.database);
+            var db = server.GetDatabase(this.activeCollection.database);
 
-            var collect = db.GetCollection(settings.collection);
+            var collect = db.GetCollection(this.activeCollection.collection);
 
             var count = collect.FindAll().Count();
 

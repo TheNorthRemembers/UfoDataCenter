@@ -8,14 +8,20 @@ namespace UfoDataCenter.info
 {
     public abstract partial class aUfo
     {
-        public abstract UfoCollection ufo_reports
+        public abstract UfoCollection activeCollection
         {
             get;
+            
         }
+        
+        public abstract IEnumerable<UfoCollection> reports
+        {
+            get;
+        }       
        
         public int doc_count
         {
-            get { return this.GetCount(this.ufo_reports); } 
+            get { return this.GetCount(); } 
         }
 
     }

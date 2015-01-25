@@ -10,8 +10,8 @@ namespace UfoDataCenter.info
 {
     public abstract partial class aUfo
     {
-        public abstract UfoTextDoc GetRandom(UfoCollection setting);
-        public abstract int GetCount(UfoCollection setting);
+        public abstract UfoTextDoc GetRandom();
+        public abstract int GetCount();
        
          
     }
