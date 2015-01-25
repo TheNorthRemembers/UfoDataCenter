@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="aTest.cs" />
-    <Compile Include="Text.cs" />
+    <Compile Include="aCollections.cs" />
+    <Compile Include="aUfo.cs" />
+    <Compile Include="UfoText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
