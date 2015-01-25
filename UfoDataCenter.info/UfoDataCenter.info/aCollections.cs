@@ -12,8 +12,12 @@ namespace UfoDataCenter.info
         {
             get;
         }
+       
+        public int doc_count
+        {
+            get { return this.GetCount(this.ufo_reports); } 
+        }
 
-        
     }
     public class UfoTextDoc
     {
@@ -21,16 +25,16 @@ namespace UfoDataCenter.info
         public string sighted_at { get; set; }
         public string reported_at { get; set; }
         public string location { get; set; }
-
         public string shape { get; set; }
         public string duration { get; set; }
-        public string description { get; set; }       
+        public string description { get; set; }
 
     }
-    public class UfoCollection    {
-
+    public class UfoCollection
+    {
         public string database { get; set; }
         public string collection { get; set; }
+        public string description { get; set; }
 
     }
 }

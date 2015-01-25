@@ -18,8 +18,6 @@ namespace UfoDataCenter.info
 {
     public partial class UfoText : aUfo
     {
-
-
         public override UfoCollection ufo_reports
         {
             get
@@ -27,11 +25,11 @@ namespace UfoDataCenter.info
                 return new UfoCollection
                 {
                     database = "ufodatacenter",
-                    collection = "ufo_reports"
+                    collection = "ufo_reports",
+                    description = "A collection of UFO text report documents. "
                 };
             }
         }
-
 
 
         public override UfoTextDoc GetRandom(UfoCollection settings)
@@ -48,7 +46,7 @@ namespace UfoDataCenter.info
 
             int count = this.GetCount(settings);
 
-            int skip = rnd.Next(0, (count - 1));         
+            int skip = rnd.Next(0, (count - 1));
 
             var document = BsonSerializer.Deserialize<UfoTextDoc>(collect.AsQueryable().Skip(skip).First());
 
