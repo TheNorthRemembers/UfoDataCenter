@@ -8,17 +8,28 @@ namespace UfoDataCenter.info
 {
     public abstract partial class aUfo
     {
-        public abstract UfoCollection activeCollection
+        public UfoCollection activeCollection
         {
-            get;
+            get { return this._activeCollection; }
             
         }
         
         public abstract IEnumerable<UfoCollection> reports
         {
             get;
-        }       
-       
+        }
+
+        public bool SetActive(string c_name)
+        {
+            var active = this.reports.Where(x => x.name == c_name).SingleOrDefault();
+
+            if (active != null)
+                return true;
+            else
+                return false;
+        }
+
+        private UfoCollection _activeCollection { get; set; }
         public int doc_count
         {
             get { return this.GetCount(); } 
@@ -41,6 +52,8 @@ namespace UfoDataCenter.info
         public string database { get; set; }
         public string collection { get; set; }
         public string description { get; set; }
+
+        public string name { get; set; }
 
     }
 }

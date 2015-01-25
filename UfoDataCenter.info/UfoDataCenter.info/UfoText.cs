@@ -20,7 +20,8 @@ namespace UfoDataCenter.info
     {
 
         //Enumnerator for future; hopefully we have multiple sources later and can use Enumerator to access 
-        //No metter what will keep SQL table with collection info
+        //No metter what will keep SQL table with collection info        
+        public UfoText(string c_name) : base(c_name) { }
         public override IEnumerable<UfoCollection> reports
         {
             get {
@@ -28,13 +29,8 @@ namespace UfoDataCenter.info
                 r.Add(this.ufo_reports);
                 return r;            
             }
-        }
-        //will add constructer for this, for testing
-        public override UfoCollection activeCollection
-        {
-            get { return this.ufo_reports; }
-            
-        }
+        }     
+       
 
         private UfoCollection ufo_reports
         {
@@ -44,6 +40,7 @@ namespace UfoDataCenter.info
                 {
                     database = "ufodatacenter",
                     collection = "ufo_reports",
+                    name = "uforeports",
                     description = "A collection of UFO text report documents. "
                 };
             }
