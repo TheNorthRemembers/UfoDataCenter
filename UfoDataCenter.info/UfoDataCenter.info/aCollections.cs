@@ -14,10 +14,6 @@ namespace UfoDataCenter.info
         }
 
         
-    
-        
-
-         
     }
     public class UfoTextDoc
     {
