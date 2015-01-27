@@ -29,9 +29,22 @@ namespace UfoDataCenter.info
                 r.Add(this.ufo_reports);
                 return r;            
             }
-        }     
-       
+        }
 
+        public override UfoTextDoc GetSingle(int Nth)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IEnumerable<UfoTextDoc> GetPage(int page, int perpage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override UfoTextDoc GetSingle(BsonObjectId id)
+        {
+            throw new NotImplementedException();
+        }
         private UfoCollection ufo_reports
         {
             get
@@ -66,7 +79,7 @@ namespace UfoDataCenter.info
             return document;
         }
 
-
+        
         public override int GetCount()
         {
             var mongoclient = new MongoClient(UfoDB.Connection.settings);
