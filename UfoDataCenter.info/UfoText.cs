@@ -12,26 +12,41 @@ using MongoDB.Bson;
 using MongoDB.Driver.Linq;
 using MongoDB.Bson.Serialization;
 using UfoDB;
-
+using UfoDataCenter.info.DataSources;
 
 namespace UfoDataCenter.info
 {
     public partial class UfoText : aUfo
-    {
-
-        //Enumnerator for future; hopefully we have multiple sources later and can use Enumerator to access 
-        //No metter what will keep SQL table with collection info        
+    {                
         public UfoText(string c_name) : base(c_name) { }
+
+        public override string ufoDocType
+        {
+            get { return "text"; }
+        }
         public override IEnumerable<UfoCollection> reports
         {
-            get {
-                List<UfoCollection> r = new List<UfoCollection>();
-                r.Add(this.ufo_reports);
-                return r;            
+            get {                
+                using(ufoSQLDataContext c = new ufoSQLDataContext())
+                {   
+                    return c.ufo_collections.Where(x => x.type == this.ufoDocType).Select(y =>
+                        new UfoCollection
+                        {
+                            collection = y.collection,
+                            database = y.database,
+                            description = y.description,
+                            name = y.name
+                        }).ToList();
+                }
             }
         }
 
         public override UfoDoc GetSingle(int Nth)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override UfoDoc GetSingle(BsonObjectId id)
         {
             throw new NotImplementedException();
         }
@@ -41,25 +56,7 @@ namespace UfoDataCenter.info
             throw new NotImplementedException();
         }
 
-        public override UfoDoc GetSingle(BsonObjectId id)
-        {
-            throw new NotImplementedException();
-        }
-        private UfoCollection ufo_reports
-        {
-            get
-            {
-                return new UfoCollection
-                {
-                    database = "ufodatacenter",
-                    collection = "ufo_reports",
-                    name = "uforeports",
-                    description = "A collection of UFO text report documents. "
-                };
-            }
-        }
-
-
+        
         public override UfoDoc GetRandom()
         {
             var mongoclient = new MongoClient(UfoDB.Connection.settings);

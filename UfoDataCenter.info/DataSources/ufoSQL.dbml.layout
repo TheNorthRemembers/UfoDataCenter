@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ufoSQL">
+  <DataContextMoniker Name="/ufoSQLDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0a6653ba-2faa-422e-9d79-56b3dc8af234" absoluteBounds="4.5, 1.25, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ufoSQLDataContext/ufo_collection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36e62a0f-f4bb-4fef-a0cf-8ed974263eb8" absoluteBounds="4.515, 1.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

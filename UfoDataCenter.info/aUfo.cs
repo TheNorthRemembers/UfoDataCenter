@@ -18,7 +18,6 @@ namespace UfoDataCenter.info
         
         public abstract UfoDoc GetRandom();
         protected abstract int GetCount();
-
         public abstract UfoDoc GetSingle(int Nth);
         public abstract UfoDoc GetSingle(BsonObjectId id);
         public abstract IEnumerable<UfoDoc> GetPage(int page, int perpage);

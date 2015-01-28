@@ -14,6 +14,7 @@ namespace UfoDataCenter.info
 
         }
 
+        public abstract string ufoDocType { get; }
         private UfoCollection _activeCollection { get; set; }
         public abstract IEnumerable<UfoCollection> reports
         {
@@ -40,27 +41,7 @@ namespace UfoDataCenter.info
         }
 
     }
-    public class UfoDoc
-    {
-        public UfoTextDoc textDoc { get; set; }
-    }
-
-    public class UfoTextDoc : UfoDocBase
-    {
-        public string sighted_at { get; set; }
-        public string reported_at { get; set; }
-        public string location { get; set; }
-        public string shape { get; set; }
-        public string duration { get; set; }
-        public string description { get; set; }
-    }
-
-    public class UfoDocBase
-    {
-        public BsonObjectId _id { get; set; }
-    }
-
-
+    
     public class UfoCollection
     {
         public string database { get; set; }
