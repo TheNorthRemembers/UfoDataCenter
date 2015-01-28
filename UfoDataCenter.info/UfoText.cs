@@ -31,17 +31,17 @@ namespace UfoDataCenter.info
             }
         }
 
-        public override UfoTextDoc GetSingle(int Nth)
+        public override UfoDoc GetSingle(int Nth)
         {
             throw new NotImplementedException();
         }
 
-        public override IEnumerable<UfoTextDoc> GetPage(int page, int perpage)
+        public override IEnumerable<UfoDoc> GetPage(int page, int perpage)
         {
             throw new NotImplementedException();
         }
 
-        public override UfoTextDoc GetSingle(BsonObjectId id)
+        public override UfoDoc GetSingle(BsonObjectId id)
         {
             throw new NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace UfoDataCenter.info
         }
 
 
-        public override UfoTextDoc GetRandom()
+        public override UfoDoc GetRandom()
         {
             var mongoclient = new MongoClient(UfoDB.Connection.settings);
 
@@ -72,15 +72,17 @@ namespace UfoDataCenter.info
 
             Random rnd = new Random();          
 
-            int skip = rnd.Next(0, (this.GetCount() - 1));
+            int skip = rnd.Next(0, (this.doc_count - 1));            
 
-            var document = BsonSerializer.Deserialize<UfoTextDoc>(collect.AsQueryable().Skip(skip).First());
+            UfoDoc document = new UfoDoc();
+
+            document.textDoc = BsonSerializer.Deserialize<UfoTextDoc>(collect.AsQueryable().Skip(skip).First());
 
             return document;
         }
 
         
-        public override int GetCount()
+        protected override int GetCount()
         {
             var mongoclient = new MongoClient(UfoDB.Connection.settings);
 

@@ -11,9 +11,10 @@ namespace UfoDataCenter.info
         public UfoCollection activeCollection
         {
             get { return this._activeCollection; }
-            
+
         }
-        
+
+        private UfoCollection _activeCollection { get; set; }
         public abstract IEnumerable<UfoCollection> reports
         {
             get;
@@ -24,29 +25,42 @@ namespace UfoDataCenter.info
             var active = this.reports.Where(x => x.name == c_name).SingleOrDefault();
 
             if (active != null)
+            {
+                this._activeCollection = active;
                 return true;
+            }
             else
                 return false;
         }
 
-        private UfoCollection _activeCollection { get; set; }
+        
         public int doc_count
         {
-            get { return this.GetCount(); } 
+            get { return this.GetCount(); }
         }
 
     }
-    public class UfoTextDoc
+    public class UfoDoc
     {
-        public BsonObjectId _id { get; set; }
+        public UfoTextDoc textDoc { get; set; }
+    }
+
+    public class UfoTextDoc : UfoDocBase
+    {
         public string sighted_at { get; set; }
         public string reported_at { get; set; }
         public string location { get; set; }
         public string shape { get; set; }
         public string duration { get; set; }
         public string description { get; set; }
-
     }
+
+    public class UfoDocBase
+    {
+        public BsonObjectId _id { get; set; }
+    }
+
+
     public class UfoCollection
     {
         public string database { get; set; }

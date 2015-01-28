@@ -16,12 +16,12 @@ namespace UfoDataCenter.info
             this._activeCollection = this.reports.Where(x => x.name == c_name).SingleOrDefault();
         }
         
-        public abstract UfoTextDoc GetRandom();
-        public abstract int GetCount();
+        public abstract UfoDoc GetRandom();
+        protected abstract int GetCount();
 
-        public abstract UfoTextDoc GetSingle(int Nth);
-        public abstract UfoTextDoc GetSingle(BsonObjectId id);
-        public abstract IEnumerable<UfoTextDoc> GetPage(int page, int perpage);
+        public abstract UfoDoc GetSingle(int Nth);
+        public abstract UfoDoc GetSingle(BsonObjectId id);
+        public abstract IEnumerable<UfoDoc> GetPage(int page, int perpage);
        
          
     }
