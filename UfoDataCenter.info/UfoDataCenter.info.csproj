@@ -48,12 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aCollections.cs" />
+    <Compile Include="aMongo.cs" />
     <Compile Include="aUfo.cs" />
     <Compile Include="DataSources\ufoSQL.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ufoSQL.dbml</DependentUpon>
     </Compile>
+    <Compile Include="aPagination.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

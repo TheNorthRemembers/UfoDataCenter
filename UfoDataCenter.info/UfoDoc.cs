@@ -8,7 +8,8 @@ namespace UfoDataCenter.info
 {
     public class UfoDoc
     {
-        public UfoTextDoc textDoc { get; set; }
+        public IEnumerable<UfoTextDoc> textDoc { get; set; }
+        public Pagination pageInfo { get; set; }
     }
 
     public class UfoTextDoc : UfoDocBase
