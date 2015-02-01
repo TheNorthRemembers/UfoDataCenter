@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 namespace UfoDataCenter.info
 {
-    public class UfoDoc
-    {
+    public class UfoDoc    {
+        
         public IEnumerable<UfoTextDoc> textDoc { get; set; }
         public Pagination pageInfo { get; set; }
     }

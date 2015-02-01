@@ -9,7 +9,7 @@ namespace UfoDataCenter.info
     public abstract partial class aUfo
     {
 
-        
+
         public UfoCollection activeCollection
         {
             get { return this._activeCollection; }

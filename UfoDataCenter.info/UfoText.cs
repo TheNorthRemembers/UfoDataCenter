@@ -144,11 +144,9 @@ namespace UfoDataCenter.info
 
             int skip = rnd.Next(0, (this.doc_count - 1));
 
-            UfoDoc document = new UfoDoc();
+            UfoDoc document = new UfoDoc();            
 
-            var doc = BsonSerializer.Deserialize<UfoTextDoc>(collect.AsQueryable().Skip(skip).First());
-
-            document.textDoc = new List<UfoTextDoc>() { doc };
+            document.textDoc = new List<UfoTextDoc>() { BsonSerializer.Deserialize<UfoTextDoc>(collect.AsQueryable().Skip(skip).First()) };
 
             document.pageInfo = new Pagination(this.perPage, this.pages);
 
