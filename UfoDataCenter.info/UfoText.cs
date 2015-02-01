@@ -132,7 +132,28 @@ namespace UfoDataCenter.info
 
         public override UfoDoc GetPage(int page)
         {
-            throw new NotImplementedException();
+            var collect = this.GetActiveDB();
+
+            Random rnd = new Random();            
+
+            UfoDoc document = new UfoDoc();
+
+            int skip = page * this.perPage;
+
+            var results = collect.FindAll().Skip(skip).Take(this.perPage).ToList();
+
+            List<UfoTextDoc> resultsList = new List<UfoTextDoc>();
+
+            foreach (var result in results)
+            {
+                resultsList.Add(BsonSerializer.Deserialize<UfoTextDoc>(result));
+            }
+
+            document.textDoc = resultsList;
+
+            document.pageInfo = new Pagination(this.perPage, this.pages);
+
+            return document;
         }
 
 
