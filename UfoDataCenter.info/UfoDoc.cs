@@ -22,7 +22,7 @@ namespace UfoDataCenter.info
         public string description { get; set; }
     }
 
-    public class UfoDocBase
+    public abstract class UfoDocBase
     {
         public BsonObjectId _id { get; set; }
     }

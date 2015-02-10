@@ -21,6 +21,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UfoTest", "UfoTest\UfoTest.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UfoDataCenter.info", "UfoDataCenter.info\UfoDataCenter.info.csproj", "{D9E85975-B1E8-4F44-AF57-A50DD9FC9DFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UfoAPI", "UfoAPI\UfoAPI.csproj", "{56346FE8-189A-4B41-AFE4-64BAECF97930}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D9E85975-B1E8-4F44-AF57-A50DD9FC9DFC} = {D9E85975-B1E8-4F44-AF57-A50DD9FC9DFC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +48,10 @@ Global
 		{D9E85975-B1E8-4F44-AF57-A50DD9FC9DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9E85975-B1E8-4F44-AF57-A50DD9FC9DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9E85975-B1E8-4F44-AF57-A50DD9FC9DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56346FE8-189A-4B41-AFE4-64BAECF97930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56346FE8-189A-4B41-AFE4-64BAECF97930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56346FE8-189A-4B41-AFE4-64BAECF97930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56346FE8-189A-4B41-AFE4-64BAECF97930}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

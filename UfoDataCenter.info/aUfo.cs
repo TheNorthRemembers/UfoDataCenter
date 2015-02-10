@@ -63,7 +63,19 @@ namespace UfoDataCenter.info
          
     }
 
-    
+    public class UfoError
+    {
+        public UfoError(string message)
+        {
+            error = message;
+        }
+        public static string UfoErrorResponse(string message)
+        {
+            return new UfoError(message).ToJson();
+        }
+        public string error;
+
+    }
 
 
 }
