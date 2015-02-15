@@ -17,7 +17,7 @@ namespace API
 
             config.Routes.MapHttpRoute(
                 name: "RecordPostRoute",
-                routeTemplate: "{controller}/{page}/{perpage}",                
+                routeTemplate: "{controller}/{page}/{perpage}"                
             );
             
             // Uncomment the following line of code to enable query support for actions with an IQueryable or IQueryable<T> return type.
