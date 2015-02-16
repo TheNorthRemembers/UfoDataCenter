@@ -32,6 +32,15 @@ namespace UfoDataCenter.info
             return (count % perPage) == 0 ? count/perPage : (count/perPage) + 1;
         }
 
+        public Href href { get; set; }
+
+    }
+
+    public class Href
+    {
+        public string nextUrl { get; set; }
+        public string prevUrl { get; set; }
+
     }
 
 }

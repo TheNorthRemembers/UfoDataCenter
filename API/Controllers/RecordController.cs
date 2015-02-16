@@ -23,6 +23,14 @@ namespace API.Controllers
             {
                 case true:
                     doc = vw.GetSingle(results);
+                    string nextR = (results < 0) ? "" : (results - 1).ToString();
+                    string prevR = (results > vw.doc_count) ? "" : (results + 1).ToString();
+                    doc.pageInfo.href = new Href
+                    {
+                        prevUrl = "record/" + prevR,
+                        nextUrl = "record/" + nextR    
+
+                    };
                     break;
                 case false:
                     try
