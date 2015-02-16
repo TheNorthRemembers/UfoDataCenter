@@ -11,7 +11,9 @@ namespace API.Controllers
 {
     public class RecordController : ApiController
     {
-        // GET api/values
+        // GET record/{id}
+        // Either record by #
+        // or record by object id
         public string Get(string id)
         {
             UfoText vw = new UfoText("uforeports");
@@ -39,8 +41,9 @@ namespace API.Controllers
 
         
 
-        // POST 
-        public string Post([FromBody]string collection ,int page , int perpage = 0)
+        // POST record/{page}/{perpage}
+        // FORM data: collection:"collection"
+        public string Post([FromBody]string collection, int perpage, int page )
         {
             UfoText vw;
 
@@ -50,7 +53,7 @@ namespace API.Controllers
             }
             catch (Exception e)
             {
-                return UfoError.UfoErrorResponse("Invalid collection name.");
+                 return UfoError.UfoErrorResponse("Invalid collection name.");
             }
 
             if (perpage != 0)
@@ -61,15 +64,6 @@ namespace API.Controllers
             return doc.ToJson();
         }
 
-        
-        // PUT api/values/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE api/values/5
-        //public void Delete(int id)
-        //{
-        //}
+       
     }
 }

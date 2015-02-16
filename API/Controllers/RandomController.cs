@@ -15,9 +15,7 @@ namespace API.Controllers
         {
             UfoText vw = new UfoText("uforeports");
 
-            UfoDoc doc = vw.GetRandom();
-
-            return doc.ToJson(); 
+            return vw.GetRandom().ToJson();            
         }
 
        

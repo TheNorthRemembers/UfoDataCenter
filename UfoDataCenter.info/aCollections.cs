@@ -44,12 +44,5 @@ namespace UfoDataCenter.info
 
     }
     
-    public class UfoCollection
-    {
-        public string database { get; set; }
-        public string collection { get; set; }
-        public string description { get; set; }
-        public string name { get; set; }
-
-    }
+ 
 }

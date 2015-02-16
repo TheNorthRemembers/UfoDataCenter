@@ -45,7 +45,8 @@ namespace UfoDataCenter.info
                             collection = y.collection,
                             database = y.database,
                             description = y.description,
-                            name = y.name
+                            name = y.name,
+                            type = y.type
                         }).ToList();
                 }
             }
