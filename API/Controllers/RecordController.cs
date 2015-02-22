@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using UfoDataCenter.info;
 using MongoDB.Bson;
-
+using Newtonsoft.Json;
 namespace API.Controllers
 {
     public class RecordController : ApiController
@@ -14,11 +14,12 @@ namespace API.Controllers
         // GET record/{id}
         // Either record by #
         // or record by object id
-        public string Get(string id)
+        public UfoDoc Get(string id)
         {
             UfoText vw = new UfoText("uforeports");
             UfoDoc doc = null;
             int results;
+            List<string> result = new List<string>();
             switch (Int32.TryParse(id, out results))
             {
                 case true:
@@ -28,23 +29,27 @@ namespace API.Controllers
                     doc.pageInfo.href = new Href
                     {
                         prevUrl = "record/" + prevR,
-                        nextUrl = "record/" + nextR    
-
+                        nextUrl = "record/" + nextR   
                     };
+
+                    //result.Add(JsonConvert.SerializeObject(doc));
+                    
                     break;
                 case false:
                     try
                     {
                         BsonObjectId _id = new BsonObjectId(new ObjectId(id));
                         doc = vw.GetSingle(_id);
+                        //result.Add(JsonConvert.SerializeObject(doc));
                         break;
                     }
                     catch (Exception e)
-                    {
-                        return UfoError.UfoErrorResponse("Please supply an integer or valid BSON ID");
+                    {                        
+                        result.Add(JsonConvert.SerializeObject(UfoError.UfoErrorResponse("Please supply an integer or valid BSON ID")));
+                        break;
                     }
             }
-            return doc.ToJson();
+            return doc;
         }
 
         

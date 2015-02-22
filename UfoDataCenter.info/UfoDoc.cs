@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 namespace UfoDataCenter.info
 {
     public class UfoDoc    {
@@ -14,17 +15,37 @@ namespace UfoDataCenter.info
 
     public class UfoTextDoc : UfoDocBase
     {
+
         public string sighted_at { get; set; }
         public string reported_at { get; set; }
         public string location { get; set; }
         public string shape { get; set; }
         public string duration { get; set; }
         public string description { get; set; }
+
+     }
+
+    public class UfoDocBase
+    {
+        [BsonId]        
+        public BsonObjectId _id
+        {
+            get;
+            set;
+        }
+
+        
     }
 
-    public abstract class UfoDocBase
+    public class ShellTextDoc
     {
-        public BsonObjectId _id { get; set; }
+        public string id { get; set; }
+        public string sighted_at { get; set; }
+        public string reported_at { get; set; }
+        public string location { get; set; }
+        public string shape { get; set; }
+        public string duration { get; set; }
+        public string description { get; set; }
     }
 
 

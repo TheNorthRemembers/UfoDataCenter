@@ -5,17 +5,18 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using UfoDataCenter.info;
-using MongoDB.Bson;
+using Newtonsoft.Json;
 namespace API.Controllers
 {
     public class RandomController : ApiController
     {
         // GET /random
-        public string Get()
+        //Ember Friendly
+        public UfoDoc Get()
         {
-            UfoText vw = new UfoText("uforeports");
-
-            return vw.GetRandom().ToJson();            
+            UfoText vw = new UfoText("uforeports");            
+            var doc = vw.GetRandom();            
+            return doc;  
         }
 
        
