@@ -56,7 +56,7 @@ namespace API.Controllers
 
         // POST record/{page}/{perpage}
         // FORM data: collection:"collection"
-        public string Post([FromBody]string collection, int perpage, int page )
+        public UfoDoc Post([FromBody]string collection, int perpage, int page )
         {
             UfoText vw;
 
@@ -66,7 +66,7 @@ namespace API.Controllers
             }
             catch (Exception e)
             {
-                 return UfoError.UfoErrorResponse("Invalid collection name.");
+                 return null;
             }
 
             if (perpage != 0)
@@ -74,7 +74,7 @@ namespace API.Controllers
 
             UfoDoc doc = vw.GetPage(page);
 
-            return doc.ToJson();
+            return doc;
         }
 
        
