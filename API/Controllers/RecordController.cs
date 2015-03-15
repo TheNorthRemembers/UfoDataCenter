@@ -74,6 +74,34 @@ namespace API.Controllers
 
             UfoDoc doc = vw.GetPage(page);
 
+            //we are formatting for oursite, so
+            // 
+
+            if (page == 0)
+            {
+
+                doc.pageInfo.href = new Href
+                {
+                    nextUrl = (page + 1).ToString(),
+                    prevUrl = null
+                };
+            }
+            else if(page == doc.pageInfo.pages)
+            {
+                doc.pageInfo.href = new Href
+                {
+                    nextUrl = null,
+                    prevUrl = (page - 1).ToString()
+                };
+            }
+            else
+            {
+                doc.pageInfo.href = new Href
+                {
+                    nextUrl = (page + 1).ToString(),
+                    prevUrl = (page - 1).ToString()
+                };
+            }
             return doc;
         }
 
