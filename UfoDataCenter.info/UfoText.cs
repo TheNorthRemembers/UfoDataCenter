@@ -139,6 +139,9 @@ namespace UfoDataCenter.info
 
             UfoDoc document = new UfoDoc();
 
+            if (page > this.pages)
+                page = this.pages-1;
+
             int skip = page * this.perPage;
 
             var results = collect.FindAll().Skip(skip).Take(this.perPage).ToList();

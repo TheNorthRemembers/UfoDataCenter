@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+
 namespace UfoDataCenter.info
 {
     public class UfoDoc    {
@@ -22,6 +23,17 @@ namespace UfoDataCenter.info
         public string shape { get; set; }
         public string duration { get; set; }
         public string description { get; set; }
+
+        public string sightedPretty
+        {
+            get
+            {
+                string year = this.sighted_at.Substring(0, 4);
+                string month = this.sighted_at.Substring(4, 2);
+                string day = this.sighted_at.Substring(6);
+                return month.Replace("0","") + '/' + day.Replace("0","") + '/' + year;
+            }
+        }
 
      }
 
